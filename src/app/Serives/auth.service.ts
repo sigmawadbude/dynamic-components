@@ -113,4 +113,8 @@ export class AuthService {
       this.logOut();
     }, expireTime);
   }
+
+  isAuthenticated() {
+    return this.user.value !== null;
+  }
 }
