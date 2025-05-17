@@ -1,7 +1,6 @@
 import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { AuthService } from '../Serives/auth.service';
 import { Subscription } from 'rxjs';
-import { User } from '../Models/user';
 
 @Component({
   selector: 'app-header',

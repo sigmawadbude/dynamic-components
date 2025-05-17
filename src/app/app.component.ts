@@ -3,9 +3,20 @@ import { AuthService } from './Serives/auth.service';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
+  template: `<div class="app-content">
+  <app-header />
+  <div class="app-main-area">
+    <router-outlet></router-outlet>
+  </div>
+  <app-footer></app-footer>
+</div>`,
   standalone: false,
-  styleUrl: './app.component.css'
+  styles: [`
+    .app-main-area{
+    margin: 10px 10px;
+    background-color: #F7F9F9;
+}
+    `]
 })
 export class AppComponent implements OnInit {
   title = 'dynamic-components';

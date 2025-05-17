@@ -3,7 +3,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 @Component({
   selector: 'app-snackbar',
   standalone: false,
-  templateUrl: './snackbar.component.html',
+  template: '<div class="sb sb-error">{{ errorMessage }} <span class="fa fa-close" (click)="close()"></span></div>',
   styleUrl: './snackbar.component.css'
 })
 export class SnackbarComponent {

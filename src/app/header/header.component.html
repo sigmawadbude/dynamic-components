@@ -7,7 +7,18 @@
     <!--APP NAVBAR-->
     <div class="app-header-navbar">
         <a routerLink="/">HOME</a>
-        <a routerLink="/dashboard" *ngIf="isLoggedIn">DASHBOARD</a>
+        
+        <div class="dropdown" *ngIf="isLoggedIn">
+            <button class="dropbtn">DASHBOARD 
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a routerLink="dashboard/overview">OVERVIEW</a>
+              <a routerLink="dashboard/stats">STATS</a>
+              <!-- <a routerLink="dashboard/more">MORE LINK</a> -->
+            </div>
+        </div> 
+
         <a routerLink="/login" *ngIf="!isLoggedIn">LOGIN</a>
         <a routerLink="/login" *ngIf="isLoggedIn" (click)="logOut()">LOGOUT</a>
     </div>
