@@ -24,8 +24,7 @@ export class CreateTaskComponent {
   ngAfterViewInit(){
     setTimeout(() => {
       this.taskForm.form.patchValue(this.selectedTask);
-    }, 0);
-    
+    }, 0);    
   }
 
   OnCloseForm(){

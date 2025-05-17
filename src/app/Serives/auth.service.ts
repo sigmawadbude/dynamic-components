@@ -13,7 +13,7 @@ export class AuthService {
   router = inject(Router);
 
   signUp(email: string, password: string) {
-    const url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDzqGhCuAx1Q_41DJy7BJU-hybbb-XrtoM`;
+    const url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=API_KEY`;
     const data = {
       email,
       password,
@@ -26,7 +26,7 @@ export class AuthService {
   }
 
   signIn(email: string, password: string) {
-    const url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDzqGhCuAx1Q_41DJy7BJU-hybbb-XrtoM`;
+    const url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=API_KEY`;
     const data = {
       email,
       password,

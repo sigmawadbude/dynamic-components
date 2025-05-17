@@ -2,7 +2,7 @@ import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthService } from '../Serives/auth.service';
 import { Subscription } from 'rxjs';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       this.authService.signIn(email, password).subscribe({
         next: (res) => {
           this.isLoading = false;
-          this.router.navigate(['/dashboard']);
+          this.router.navigate(['/dashboard/overview']);
         },
         error: (err) => {
           this.isLoading = false;
@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       this.authService.signUp(email, password).subscribe({
         next: (res) => {
           this.isLoading = false;
-          this.router.navigate(['/dashboard']);
+          this.router.navigate(['/dashboard/overview']);
         },
         error: (err) => {        
           this.isLoading = false;

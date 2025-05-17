@@ -16,24 +16,23 @@ import { AuthInterceptorService } from './Serives/auth-interceptor.service';
 import { LoggingInterceptorService } from './Serives/logging';
 import { LoaderComponent } from './utility/loader/loader.component';
 import { SnackbarComponent } from './utility/snackbar/snackbar.component';
+import { SharedModule } from './shared/shared.module';
+import { DashboardModule } from './dashboard/dashboard.module';
+import { OverviewComponent } from './dashboard/overview/overview.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent,
-    CreateTaskComponent,
-    TaskDetailsComponent,
     HeaderComponent,
     FooterComponent,
     LoginComponent,
     HomeComponent,
-    LoaderComponent,
-    SnackbarComponent
+    
   ],
   imports: [
     BrowserModule,
-    FormsModule,
     HttpClientModule,
+    DashboardModule,
     AppRoutingModule
   ],
   providers: [
