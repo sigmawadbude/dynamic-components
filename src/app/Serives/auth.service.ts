@@ -4,6 +4,7 @@ import { AuthResponse, commonLoginErrors } from '../Models/auth-response';
 import { BehaviorSubject, catchError, delay, Subject, tap, throwError } from 'rxjs';
 import { User } from '../Models/user';
 import { Router } from '@angular/router';
+import { environment } from '../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -13,7 +14,7 @@ export class AuthService {
   router = inject(Router);
 
   signUp(email: string, password: string) {
-    const url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=API_KEY`;
+    const url = environment.apiUrlSignUp;
     const data = {
       email,
       password,
@@ -26,7 +27,7 @@ export class AuthService {
   }
 
   signIn(email: string, password: string) {
-    const url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=API_KEY`;
+    const url = environment.apiUrlSignIn;
     const data = {
       email,
       password,

@@ -27,7 +27,7 @@ import { StatsComponent } from './stats/stats.component';
     SharedModule,
     RouterModule.forChild([
       {
-        path: 'dashboard',
+        path: '',
         canActivate: [dashboardGuard],
         children: [
           { path: 'overview', component: OverviewComponent },
