@@ -8,3 +8,7 @@ export interface IProduct {
   starRating: number;
   imageUrl: string;
 }
+
+export interface InputObject {
+  [key: string]: IProduct; // This allows for dynamic keys
+}

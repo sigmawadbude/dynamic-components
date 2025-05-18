@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { IProduct } from './product';
+import { ProductService } from '../product.service';
 
 @Component({
   selector: 'app-product-list',
@@ -8,7 +9,7 @@ import { IProduct } from './product';
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.css'
 })
-export class ProductListComponent {
+export class ProductListComponent implements OnInit, OnDestroy {
 pageTitle = 'Product List';
   imageWidth = 50;
   imageMargin = 2;
@@ -28,6 +29,8 @@ pageTitle = 'Product List';
   filteredProducts: IProduct[] = [];
   products: IProduct[] = [];
 
+  constructor(private productService: ProductService) {}
+
   performFilter(filterBy: string): IProduct[] {
     filterBy = filterBy.toLocaleLowerCase();
     return this.products.filter((product: IProduct) =>
@@ -36,6 +39,20 @@ pageTitle = 'Product List';
 
   toggleImage(): void {
     this.showImage = !this.showImage;
+  }
+
+  ngOnInit(): void {
+    this.sub = this.productService.getProducts().subscribe({
+      next: products => {
+        this.products = products;
+        this.filteredProducts = this.products;
+      },
+      error: err => this.errorMessage = err
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
   }
 
   onRatingClicked(message: string): void {
