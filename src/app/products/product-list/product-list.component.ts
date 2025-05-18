@@ -7,7 +7,7 @@ import { ProductService } from '../product.service';
   selector: 'app-product-list',
   standalone: false,
   templateUrl: './product-list.component.html',
-  styleUrl: './product-list.component.css'
+  styles: [` thead {  color: #337AB7;} `]
 })
 export class ProductListComponent implements OnInit, OnDestroy {
 pageTitle = 'Product List';
