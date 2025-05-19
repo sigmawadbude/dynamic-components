@@ -1,22 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { AuthService } from './user/auth.service';
 
 @Component({
   selector: 'app-root',
   template: `
-  <nav class='navbar navbar-expand navbar-light bg-light'>
-        <a class='navbar-brand'>{{pageTitle}}</a>
-        <ul class='nav nav-pills'>
-          <li><a class='nav-link' routerLinkActive='active' routerLink='/welcome'>Home</a></li>
-          <li><a class='nav-link' routerLinkActive='active' routerLink='/products'>Product List</a></li>
-        </ul>
-    </nav>
+    <app-menu />
     <div class='container'>
-      <router-outlet></router-outlet>
+      <router-outlet />
     </div>
   `,
   standalone: false,
   styles: [`.nav-link {  font-size: large;}`]
 })
 export class AppComponent {
-  pageTitle = 'APM';
+  authService = inject(AuthService);
+ 
+  ngOnInit(): void {
+    this.authService.autoLogin();
+  }
 }

@@ -5,9 +5,11 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { SharedModule } from '../shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { productDetailsGuard } from './product-details.guard';
+import { ProductEditComponent } from './product-edit/product-edit.component';
+import { productEditGuard } from './product-edit.guard';
 
 @NgModule({
-  declarations: [ProductListComponent, ProductDetailsComponent],
+  declarations: [ProductListComponent, ProductDetailsComponent, ProductEditComponent],
   imports: [
     CommonModule,
     SharedModule,
@@ -18,6 +20,11 @@ import { productDetailsGuard } from './product-details.guard';
         canActivate: [productDetailsGuard],
         component: ProductDetailsComponent,
       },
+      {
+        path: ':id/edit',
+        canDeactivate: [productEditGuard],
+        component: ProductEditComponent
+      }
     ]),
   ],
   exports: [ProductListComponent, ProductDetailsComponent, RouterModule],
